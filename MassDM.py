@@ -34,8 +34,8 @@ def Main():
 	print('ᴜsᴇ ᴀᴛ ʏᴏᴜʀ ᴏᴡɴ ʀɪsᴋ !')
 	print(' ')
 	message = input('Enter Message: ')
-	AUTH = input('Enter Token: ' + colours.DEFUALT)
-	print(" ")
+	AUTH = input('Enter Token: ')
+	print(" " + colours.DEFUALT)
 	click.clear()
 
 	@client.event
