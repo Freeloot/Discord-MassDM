@@ -3,10 +3,17 @@ import discord
 import time
 import ctypes
 import click
+import os
+import json
 
 #Program
-ctypes.windll.kernel32.SetConsoleTitleW("Infamy's Messenger.py")
+windowSize = 'mode 70,20'
+os.system(windowSize)
+ctypes.windll.kernel32.SetConsoleTitleW("Infamy.py")
 click.clear()
+client = discord.Client()
+
+
 
 class colours:
 	GREEN = '\033[32m' 
@@ -18,40 +25,59 @@ class colours:
 	YELLOW = '\033[33m'
 
 def Main():
-	print(colours.GREEN + """██╗███╗░░██╗███████╗░█████╗░███╗░░░███╗██╗░░░██╗
+
+	def start():
+		global auth
+		auth = None
+		filename = 'token.json'
+		with open(filename) as f:
+			config = json.load(f)
+			auth = config.get('token')
+
+		print(colours.GREEN + """██╗███╗░░██╗███████╗░█████╗░███╗░░░███╗██╗░░░██╗
 ██║████╗░██║██╔════╝██╔══██╗████╗░████║╚██╗░██╔╝
 ██║██╔██╗██║█████╗░░███████║██╔████╔██║░╚████╔╝░
 ██║██║╚████║██╔══╝░░██╔══██║██║╚██╔╝██║░░╚██╔╝░░
 ██║██║░╚███║██║░░░░░██║░░██║██║░╚═╝░██║░░░██║░░░
 ╚═╝╚═╝░░╚══╝╚═╝░░░░░╚═╝░░╚═╝╚═╝░░░░░╚═╝░░░╚═╝░░░
-[Support] discord.gg/FmFKUAPagK
-	""" + colours.DEFUALT)
+[Support] discord.gg/2NWpB3vRdy
+		""" + colours.DEFUALT)
 
-        
-	client = discord.Client()
-	print(" ")
-	print(colours.BLUE + 'ᴡᴇʟᴄᴏᴍᴇ ᴘʟᴀʏᴇʀ.')
-	print('ᴜsᴇ ᴀᴛ ʏᴏᴜʀ ᴏᴡɴ ʀɪsᴋ !')
-	print(' ')
-	message = input('Enter Message: ')
-	AUTH = input('Enter Token: ')
-	print(" " + colours.DEFUALT)
-	click.clear()
+		print(" ")
+		print(colours.WHITE + 'ᴡᴇʟᴄᴏᴍᴇ ᴘʟᴀʏᴇʀ.')
+		print('ᴜsᴇ ᴀᴛ ʏᴏᴜʀ ᴏᴡɴ ʀɪsᴋ !')
+		print('')
+		print('')
+		print('1) MassDM Friends list')
+		print('')
+		global choice
+		choice = input("-> ")
 
-	@client.event
-	async def on_connect():
-		for user in client.user.friends:
-			try:
-				await user.send(message)
-				print(f'messaged: {user.name}')
-			except:
-				print(f"unable to message {user.name}")
-		print(' ')
-		print('ɢᴀᴍᴇ ᴏᴠᴇʀ !')
-		print('Window Closing In T -10')
-		time.sleep(10)
-		exit()
+	start()
 
-	client.run(AUTH, bot=False)
+	def dmfriends():
+		message = input('-> Enter Message: ')
+		print(" " + colours.DEFUALT)
+		click.clear()
 
+		@client.event
+		async def on_connect():
+			for user in client.user.friends:
+				try:
+					await user.send(message)
+					print(f'-> messaged: {user.name}')
+				except:
+					print(f"-> unable to message {user.name}")
+			input('Press Enter to continue\n')
+			click.clear()
+
+	if choice == '1':
+		dmfriends()
+
+	client.run(auth, bot=False)
 Main()
+
+print('')
+print('ɢᴀᴍᴇ ᴏᴠᴇʀ !')
+print('')
+exit()
