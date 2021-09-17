@@ -1,0 +1,6 @@
+discord
+time
+ctypes
+click
+os
+json
