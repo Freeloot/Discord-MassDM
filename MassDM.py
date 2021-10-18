@@ -68,7 +68,7 @@ def Main():
 					print(f'-> messaged: {user.name}')
 				except:
 					print(f"-> unable to message {user.name}")
-			input('Press Enter to continue\n')
+			input('Execution Completed...\n')
 			click.clear()
 
 	if choice == '1':
