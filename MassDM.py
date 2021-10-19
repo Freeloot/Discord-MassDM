@@ -49,10 +49,6 @@ def Main():
 	print('ᴜsᴇ ᴀᴛ ʏᴏᴜʀ ᴏᴡɴ ʀɪsᴋ !')
 	print('')
 	print('')
-	print('1) MassDM Friends list')
-	print('')
-	global choice
-	choice = input("-> ")
 
 
 	def dmfriends():
@@ -71,10 +67,7 @@ def Main():
 			input('Execution Completed...\n')
 			click.clear()
 		
-	if choice == '1':
-		dmfriends()
-	elif choice == "2":
-		print('testing')
+	dmfriends()
 
 
 	client.run(auth, bot=False)
