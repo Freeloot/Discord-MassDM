@@ -6,9 +6,9 @@ import click
 import os
 import json
 
-windowSize = 'mode 70,20'
+windowSize = 'mode 65,20'
 os.system(windowSize)
-ctypes.windll.kernel32.SetConsoleTitleW("Infamy.py")
+ctypes.windll.kernel32.SetConsoleTitleW("Infamy")
 click.clear()
 client = discord.Client()
 
@@ -33,27 +33,22 @@ def Main():
 		config = json.load(f)
 		auth = config.get('token')
 
-		print(colours.GREEN + """ ___  ________   ________ ________  _____ ______       ___    ___ 
-|\  \|\   ___  \|\  _____\\   __  \|\   _ \  _   \    |\  \  /  /|
-\ \  \ \  \\ \  \ \  \__/\ \  \|\  \ \  \\\__\ \  \   \ \  \/  / /
- \ \  \ \  \\ \  \ \   __\\ \   __  \ \  \\|__| \  \   \ \    / / 
-  \ \  \ \  \\ \  \ \  \_| \ \  \ \  \ \  \    \ \  \   \/  /  /  
-   \ \__\ \__\\ \__\ \__\   \ \__\ \__\ \__\    \ \__\__/  / /    
-    \|__|\|__| \|__|\|__|    \|__|\|__|\|__|     \|__|\___/ /     
-                                                     \|___|/ 
-[Support] discord.gg/2NWpB3vRdy
-		""" + colours.DEFUALT)
+		print(colours.GREEN + """
+		      |\      _,,,---,,_
+		ZZZzz /,`.-'`'    -.  ;-;;,_
+		     |,4-  ) )-,_. ,\ (  `'-'
+		    '---''(_/--'  `-'\_)  Infamy
 
-	print(" ")
-	print(colours.WHITE + 'ᴡᴇʟᴄᴏᴍᴇ ᴘʟᴀʏᴇʀ.')
-	print('ᴜsᴇ ᴀᴛ ʏᴏᴜʀ ᴏᴡɴ ʀɪsᴋ !')
+		[Support] discord.gg/g7up26STds
+		""" + colours.GREEN)
+
 	print('')
 	print('')
 
 
 	def dmfriends():
-		message = input('-> Enter Message: ')
-		print(" " + colours.DEFUALT)
+		print(" " + colours.GREEN)
+		message = input('Infamy' + colours.WHITE + '@' + colours.GREEN + 'message: ' + colours.GREEN)
 		click.clear()
 
 		@client.event
@@ -61,19 +56,13 @@ def Main():
 			for user in client.user.friends:
 				try:
 					await user.send(message)
-					print(f'-> messaged: {user.name}')
+					print('Infamy' + colours.WHITE + '@' + colours.GREEN + 'messaged: ' + user.name + colours.WHITE )
 				except:
-					print(f"-> unable to message {user.name}")
-			input('Execution Completed...\n')
-			click.clear()
+					print('Infamy' + colours.WHITE + '@' + colours.GREEN + 'unable to message: ' + user.name + colours.WHITE )
+			print(colours.GREEN + 'Execution Completed...\n' + colours.DEFUALT)
 		
 	dmfriends()
 
 
 	client.run(auth, bot=False)
 Main()
-
-print('')
-print('ɢᴀᴍᴇ ᴏᴠᴇʀ !')
-print('')
-exit()
