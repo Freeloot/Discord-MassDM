@@ -1,5 +1,4 @@
 discord
-time
 ctypes
 click
 os
