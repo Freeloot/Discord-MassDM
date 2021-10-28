@@ -1,4 +1,4 @@
-
+""" BY INFAMY """
 import discord
 import time
 import ctypes
@@ -6,13 +6,16 @@ import click
 import os
 import json
 
-windowSize = 'mode 65,20'
+windowSize = 'mode 85,20'
 os.system(windowSize)
 ctypes.windll.kernel32.SetConsoleTitleW("Infamy")
 click.clear()
 client = discord.Client()
 
-
+try:
+	os.system('cls')
+except:
+	pass
 
 class colours:
 	GREEN = '\033[32m' 
@@ -26,6 +29,7 @@ class colours:
 def Main():
 
 
+
 	global auth
 	auth = None
 	filename = 'token.json'
@@ -34,13 +38,17 @@ def Main():
 		auth = config.get('token')
 
 		print(colours.GREEN + """
-		      |\      _,,,---,,_
-		ZZZzz /,`.-'`'    -.  ;-;;,_
-		     |,4-  ) )-,_. ,\ (  `'-'
-		    '---''(_/--'  `-'\_)  Infamy
+                              |\      _,,,---,,_
+                        ZZZzz /,`.-'`'    -.  ;-;;,_
+                             |,4-  ) )-,_. ,\ (  `'-'
+                            '---''(_/--'  `-'\_)  Infamy
 
-		[Support] discord.gg/g7up26STds
+                        [Support] discord.gg/g7up26STds
 		""" + colours.GREEN)
+	try:
+		ctypes.windll.kernel32.SetConsoleTitleW(f"{os.getlogin()} | Token: {auth}")
+	except:
+		ctypes.windll.kernel32.SetConsoleTitleW(f"Infamy's Client | Token: {auth}")
 
 	print('')
 	print('')
