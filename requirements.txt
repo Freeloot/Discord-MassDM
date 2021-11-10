@@ -1,5 +1,4 @@
 discord
-ctypes
 click
 os
 json
