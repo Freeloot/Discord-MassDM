@@ -1,3 +1,3 @@
-pip install -r requirements.txt
-python MassDM.py
+pip install -r config/requirements.txt
+python src/MassDM.py
 PAUSE
