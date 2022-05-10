@@ -28,5 +28,7 @@ $ cd config
 ```
 $ cd ..
 $ installandrun.bat
+
+Infamy@message: message here
 ```
 - From here, enter the message you would like to massdm.
